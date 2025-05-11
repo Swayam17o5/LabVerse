@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Login And Registration Form Using HTML CSS & JavaScript</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url('bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+
+      .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .btn.forgot-password-btn {
+        width: auto;
+        height: 36px;
+        background: transparent;
+        border: 1px solid #512da8;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #512da8;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 8px 20px;
+        margin: -5px 0 10px 0;
+        display: inline-block;
+        text-align: left;
+        float: left;
+        clear: both;
+      }
+
+      .btn.forgot-password-btn:hover {
+        background: #512da8;
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(81, 45, 168, 0.2);
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-box login">
+            <form>
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button class="btn forgot-password-btn">Forgot Password?</button>
+                <button type="submit" class="btn">Login</button>
+                <p>or login with social platforms</p>
+                <div class="social-icons">
+                    <a href="#" id="google-login" data-provider="google"><i class='bx bxl-google'></i></a>
+                    <a href="#" id="facebook-login" data-provider="facebook" onclick="handleSocialLogin('facebook', true); return false;">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="#" id="github-login" data-provider="github"><i class='bx bxl-github'></i></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div class="form-box forgot-password">
+            <form action="">
+                <h1>Reset Password</h1>
+                <p class="reset-info">Enter your email address and we'll send you instructions to reset your password.</p>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <button type="submit" class="btn">Send Reset Link</button>
+                <div class="back-to-login">
+                    <a href="#" class="back-to-login-btn">Back to Login</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="form-box register">
+            <form action="connect.html" method="post">
+                <h1>Registration</h1>
+                <div class="input-box">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p>or register with social platforms</p>
+                <div class="social-icons">
+                    <a href="#" id="google-register" data-provider="google"><i class='bx bxl-google'></i></a>
+                    <a href="#" id="facebook-register" data-provider="facebook"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" id="github-register" data-provider="github"><i class='bx bxl-github'></i></a>
+                </div>
+            </form>
+        </div>
+        
+
+        <!-- Toggle Panels -->
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <button class="btn register-btn">Register</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptlog.js"></script>
+</body>
+</html>

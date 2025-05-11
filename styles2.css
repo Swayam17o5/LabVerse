@@ -1,0 +1,537 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.lab-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    background-color: #9B2928;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.logo {
+    height: 85px;
+    width: auto;
+}
+
+.experiment-header {
+    background-color: #9B2928;
+    color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.experiment-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+}
+
+.experiment-header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    opacity: 0.9;
+    color: white;
+}
+
+.lab-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.experiment-view {
+    flex: 1;
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.experiment-canvas {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#simulator-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #9B2928;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+#simulator-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.right-panel {
+    width: 350px;
+    margin-left: 20px;
+}
+
+/* Measurement Display Styles */
+.measurement-display {
+    position: absolute;
+    background-color: #000000;
+    color: #00ff00;
+    padding: 8px 12px;
+    font-family: monospace;
+    font-size: 14px;
+    z-index: 1000;
+    min-width: 140px;
+    text-align: right;
+    right: 20px;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+    border-radius: 4px;
+}
+
+#voltmeter-display {
+    top: 20px;
+}
+
+#ammeter-display {
+    top: 60px;
+}
+
+.simulator-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: 500px;  /* Adjusted height */
+    position: relative;
+}
+
+.measurements {
+    display: none;
+}
+
+/* Canvas specific styling */
+canvas {
+    width: auto !important;  /* Override any inline width */
+    height: 100% !important;  /* Override any inline height */
+    max-width: 100%;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Merged styles for controls section */
+.controls-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls-section h2 {
+    color: #9B2928;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.control-group {
+    margin-bottom: 1rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.control-group select,
+.control-group input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Button styles */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.control-button:first-child {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.control-button:not(:first-child) {
+    background-color: var(--background-dark);
+    color: var(--text-color);
+}
+
+.control-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.control-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Add CSS variables at the top of the file */
+:root {
+    --primary-color: #9B2928;
+    --primary-dark: #7a2121;
+    --primary-hover: #b13130;
+    --text-color: #2c3e50;
+    --border-color: #f1f2f6;
+    --background-light: #ffffff;
+    --background-dark: #f8f9fa;
+    --shadow-color: rgba(155, 41, 40, 0.2);
+    --shadow-hover: rgba(155, 41, 40, 0.4);
+}
+
+/* Merged styles for observation section */
+.observation-section {
+    width: 100%;
+    margin-top: 2rem;
+    clear: both;
+}
+
+.observation-section .section-heading {
+    margin-bottom: 1rem;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Merged styles for tables section */
+.tables-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.table-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-container h3 {
+    color: #9B2928;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+}
+
+.data-table th {
+    background-color: #9B2928;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.data-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Keep the section heading styles */
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9B2928;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #9B2928;
+}
+
+.section-heading i {
+    font-size: 1.1rem;
+}
+
+.theory-section {
+    background: white;
+    padding: 0 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.theory-section .section-heading {
+    margin-bottom: 2rem;
+}
+
+.theory-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.theory-image {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.theory-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.formulas-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.formula-box {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+}
+
+.formula-box h4 {
+    color: #9B2928;
+    margin: 0 0 10px 0;
+}
+
+.formula-box p {
+    margin: 0 0 10px 0;
+    font-family: 'Times New Roman', serif;
+}
+
+.formula-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.formula-box li {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.results-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.results-section h2 {
+    color: #9B2928;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.result-label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.result-value {
+    color: #9B2928;
+    font-weight: bold;
+}
+
+.footer {
+    width: 100%;
+    background-color: #9B2928;
+    color: #ffffff;
+    padding: 20px;
+    margin-top: auto;
+    text-align: center;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .lab-content {
+        flex-direction: column;
+    }
+    
+    .right-panel {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    
+    .experiment-view {
+        width: 100%;
+    }
+}
+
+/* Loading spinner */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #9B2928;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Results Container Styles */
+.results-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calculate-button {
+    flex: 0 0 200px;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.calculate-button:hover {
+    background-color: var(--primary-hover) !important;
+}
+
+.result-display {
+    flex: 1;
+}
+
+.result-box {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.result-box h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: var(--background-dark);
+    border-radius: 4px;
+}
+
+.result-label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.result-value {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .results-container {
+        flex-direction: column;
+    }
+
+    .calculate-button {
+        width: 100%;
+    }
+} 

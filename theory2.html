@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semiconductor Diode Experiment</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+
+    canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+.back-button {
+  position: relative;
+  z-index: 9999;
+}
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1.title {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #ff4c4c;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, border 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .section:hover {
+      transform: scale(1.05);
+      border: 2px solid #ff4c4c;
+    }
+
+    .section h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section p, .section ul {
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    .section ul {
+      list-style: square inside;
+      padding-left: 15px;
+    }
+
+    .icon {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bonds-bg"></canvas>
+  
+        <div style="text-align: right; margin-bottom: 20px;">
+            <div class="back-button">
+            <a id="backToHome" href="#" style="padding: 10px 20px; background-color: #ff4c4c; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;">
+              ⬅️ Back to Home
+            </a>
+          </div>
+          </div>
+
+  <div class="container">
+    <h1 class="title">🔌  Experiment 2: Semiconductor-Diode</h1>
+
+    <div class="section">
+      <h2><span class="icon">🎯</span>Aim</h2>
+      <p>To study the V-I characteristics of a semiconductor diode in forward and reverse bias.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">⚙️</span>Apparatus</h2>
+      <ul>
+        <li>Semiconductor diode</li>
+        <li>Resistors</li>
+        <li>Battery eliminator</li>
+        <li>Ammeter and Voltmeter</li>
+        <li>Connecting wires</li>
+        <li>Breadboard</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">📚</span>Theory</h2>
+      <p>A semiconductor diode allows current to pass in one direction (forward bias) and blocks it in the other (reverse bias). The V-I characteristics curve helps understand the threshold voltage and behavior under varying voltages.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">📝</span>Procedure</h2>
+      <ul>
+        <li>Connect the circuit for forward bias.</li>
+        <li>Increase voltage in steps and record the current for each voltage.</li>
+        <li>Repeat the steps for reverse bias.</li>
+        <li>Plot the V-I characteristics curve for both biases.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">🚀</span>Applications</h2>
+      <ul>
+        <li>Used in rectifiers to convert AC to DC.</li>
+        <li>Clipping and clamping circuits.</li>
+        <li>Protective devices in circuits.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">💡</span>Works/Observations</h2>
+      <ul>
+        <li>Forward bias: Current increases exponentially with voltage after threshold (~0.7V for Si).</li>
+        <li>Reverse bias: Very small current until breakdown occurs.</li>
+        <li>V-I graph plotted with clear knee at threshold voltage.</li>
+        <li>Confirms diode's rectifying behavior.</li>
+      </ul>
+    </div>
+  </div>
+
+ 
+  <script>
+    const canvas = document.getElementById('bonds-bg');
+    const ctx = canvas.getContext('2d');
+
+    let width, height, particles;
+    const mouse = { x: null, y: null };
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    function createParticles(count) {
+      const arr = [];
+      for (let i = 0; i < count; i++) {
+        arr.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          r: 1.5 + Math.random() * 1.5
+        });
+      }
+      return arr;
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          const angle = Math.atan2(dy, dx);
+          const force = (100 - dist) / 100;
+          p.vx += force * Math.cos(angle);
+          p.vy += force * Math.sin(angle);
+        }
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#ff4c4c80';
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(255, 76, 76, ${1 - dist / 100})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener('resize', () => {
+      resize();
+      particles = createParticles(220);
+    });
+
+    resize();
+    particles = createParticles(220);
+    drawParticles();
+  </script>
+  <script>
+    document.getElementById('backToHome').addEventListener('click', function (event) {
+      event.preventDefault();
+      window.location.href = 'index.html';
+    });
+  </script>
+  <script>
+  document.getElementById("testButton").addEventListener("click", function() {
+    alert("Button Clicked! Redirecting...");
+    window.location.href = "index.html";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "username": "Nr",
+      "email": "nr@gmail.com",
+      "password": "1234",
+      "createdAt": "2025-04-09T08:26:18.038Z"
+    },
+    {
+      "username": "Nr",
+      "email": "nishit.r@somaiya.edu",
+      "password": "12345",
+      "createdAt": "2025-05-07T04:56:15.393Z"
+    },
+    {
+      "username": "NR",
+      "email": "nishit.r14@somaiya.edu",
+      "password": "12345",
+      "createdAt": "2025-05-07T04:57:44.679Z"
+    },
+    {
+      "username": "nr14",
+      "email": "nishitrajput14@gmail.com",
+      "password": "1234",
+      "createdAt": "2025-05-07T05:23:12.678Z"
+    }
+  ]
+}

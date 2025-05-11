@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160" height="40" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+    <!-- Gradient definitions -->
+    <defs>
+        <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF4B2B;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FF416C;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Circle background -->
+    <circle cx="20" cy="20" r="18" fill="url(#circleGradient)"/>
+    
+    <!-- Lab flask icon -->
+    <path d="M14 10 L26 10 L26 30 L14 30 L14 10" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <path d="M14 14 L26 14" stroke="#fff" stroke-width="1.5"/>
+    <path d="M15 18 L25 18 L25 29 L15 29 Z" fill="#fff" opacity="0.9"/>
+    
+    <!-- Text -->
+    <text x="45" y="27" font-family="Arial, sans-serif" font-size="22" font-weight="bold">
+        <tspan fill="#FF4B2B">Lab</tspan><tspan fill="#FF416C">Verse</tspan>
+    </text>
+</svg> 

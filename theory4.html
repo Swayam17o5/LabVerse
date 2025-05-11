@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abel's Flash Point Apparatus - Theory</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+
+    canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.back-button {
+  position: relative;
+  z-index: 9999;
+}
+
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1.title {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #ff4c4c;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, border 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .section:hover {
+      transform: scale(1.05);
+      border: 2px solid #ff4c4c;
+    }
+
+    .section h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section p, .section ul, .section ol {
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    .section ul, .section ol {
+      list-style: square inside;
+      padding-left: 15px;
+    }
+
+    .icon {
+      font-size: 1.5em;
+    }
+
+    .formula {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bonds-bg"></canvas>
+  <div style="text-align: right; margin-bottom: 20px;">
+    <div class="back-button">
+    <a id="backToHome" href="#" style="padding: 10px 20px; background-color: #ff4c4c; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;">
+      ⬅️ Back to Home
+    </a>
+  </div>
+  </div>
+
+  <div class="container">
+    <h1 class="title">🔥 Abel's Flash Point Apparatus</h1>
+
+    <div class="section">
+      <h2><span class="icon">🎯</span>Aim</h2>
+      <p>To determine the flash point of a given lubricating oil using Abel's Flash Point Apparatus.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">⚗️</span>Apparatus Required</h2>
+      <ul>
+        <li>Abel's Flash Point Apparatus</li>
+        <li>Oil sample</li>
+        <li>Thermometer</li>
+        <li>Stirrer</li>
+        <li>Test flame (lamp or matchstick)</li>
+        <li>Water bath</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">📚</span>Theory</h2>
+      <p>The flash point is the lowest temperature at which the vapors of a volatile material will ignite when given an ignition source. This property is crucial for safety in handling and storing oils and fuels.</p>
+      <ul>
+        <li><strong>Flash Point:</strong> Temperature at which vapors momentarily ignite</li>
+        <li><strong>Fire Point:</strong> Temperature at which sustained burning occurs (≥ 5 seconds)</li>
+        <li><strong>Volatility:</strong> Tendency of a substance to vaporize</li>
+        <li><strong>Ignition Source:</strong> Test flame used to check for vapor ignition</li>
+      </ul>
+      <div class="formula">
+        <p>Flash Point = (T<sub>flash</sub> + T<sub>cease</sub>) / 2</p>
+        <p>Where:</p>
+        <p>T<sub>flash</sub> = Temperature at first flash</p>
+        <p>T<sub>cease</sub> = Temperature when flash ceases</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">📝</span>Procedure</h2>
+      <ol>
+        <li>Fill the water bath to the required level using the funnel</li>
+        <li>Pour the oil sample into the cup up to the marked level</li>
+        <li>Assemble the apparatus and insert the thermometer and stirrer</li>
+        <li>Heat the water bath gently and stir the oil continuously</li>
+        <li>Apply the test flame at every 1°C rise in temperature</li>
+        <li>Note the temperature when a distinct flash is observed (T<sub>flash</sub>)</li>
+        <li>Continue heating, then cool and note the temperature when the flash ceases (T<sub>cease</sub>)</li>
+        <li>Calculate the flash point using the formula</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">⚠️</span>Precautions</h2>
+      <ul>
+        <li>Ensure proper ventilation in the laboratory</li>
+        <li>Keep fire extinguisher readily available</li>
+        <li>Maintain steady heating rate</li>
+        <li>Clean apparatus thoroughly before use</li>
+        <li>Avoid overheating the oil sample</li>
+        <li>Handle hot apparatus with care</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">🔍</span>Observations</h2>
+      <ul>
+        <li>The flash is a brief, momentary ignition</li>
+        <li>Flash point varies with oil type and purity</li>
+        <li>Temperature measurement must be precise</li>
+        <li>Flash point indicates oil's volatility and safety</li>
+        <li>Multiple readings ensure accuracy</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">🚀</span>Applications & Significance</h2>
+      <ul>
+        <li>Safety classification of oils and fuels</li>
+        <li>Quality control in petroleum industry</li>
+        <li>Storage and transport regulations</li>
+        <li>Fire hazard assessment</li>
+        <li>Product specification compliance</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('bonds-bg');
+    const ctx = canvas.getContext('2d');
+
+    let width, height, particles;
+    const mouse = { x: null, y: null };
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    function createParticles(count) {
+      const arr = [];
+      for (let i = 0; i < count; i++) {
+        arr.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          r: 1.5 + Math.random() * 1.5
+        });
+      }
+      return arr;
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          const angle = Math.atan2(dy, dx);
+          const force = (100 - dist) / 100;
+          p.vx += force * Math.cos(angle);
+          p.vy += force * Math.sin(angle);
+        }
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#ff4c4c80';
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(255, 76, 76, ${1 - dist / 100})`;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    particles = createParticles(50);
+    drawParticles();
+
+    document.getElementById('backToHome').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.history.back();
+});
+</script>
+</body>
+</html>
